@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GroupController::class,'index'])->name('index');
+Route::get('/groups', [GroupController::class,'index'])->name('index');
+Route::get('/groups/create', [GroupController::class,'index'])->name('create-group');
+Route::post('/groups', [GroupController::class,'index'])->name('index');
+Route::get('/groups/{group}', [GroupController::class,'index'])->name('index');
+Route::get('/groups/{group}/students/create', [GroupController::class,'index'])->name('index');
+Route::post('/groups/{group}/students', [GroupController::class,'index'])->name('index');
+Route::get('/groups/{group}/students/{student}', [GroupController::class,'index'])->name('index');
+
