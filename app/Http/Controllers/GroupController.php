@@ -12,4 +12,9 @@ class GroupController extends Controller
         $context = ['groups'=>Group::latest()->get()];
         return view('index',$context);
     }
+    public function group(Group $group)
+    {
+        $context =['students'=>$group->student()->latest()->get()];
+        return view('students',$context);
+    }
 }

@@ -18,8 +18,8 @@ Route::get('/', [GroupController::class,'index'])->name('index');
 Route::get('/groups', [GroupController::class,'index'])->name('index');
 Route::get('/groups/create', [GroupController::class,'index'])->name('create-group');
 Route::post('/groups', [GroupController::class,'index'])->name('index');
-Route::get('/groups/{group}', [GroupController::class,'index'])->name('index');
+Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
 Route::get('/groups/{group}/students/create', [GroupController::class,'index'])->name('index');
 Route::post('/groups/{group}/students', [GroupController::class,'index'])->name('index');
-Route::get('/groups/{group}/students/{student}', [GroupController::class,'index'])->name('index');
+Route::get('/groups/{group}/students/{student}', [\App\Http\Controllers\StudentController::class,'index'])->name('student');
 

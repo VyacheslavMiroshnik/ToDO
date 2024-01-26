@@ -25,7 +25,7 @@
                 <td>{{$group->isActive}}</td>
                 <td>{{$group->created_at}}</td>
                 <td>{{$group->updated_at}}</td>
-                <td class = 'table-primary p-0'><a href="#" class="btn btn-link btn-danger w-100 p-3 link-light link-underline-opacity-0 link-underline-opacity-0-hover">Подробнее</a></td>
+                <td class = 'table-primary p-0'><a href="{{route('group',['group'=>$group->id])}}" class="btn btn-link btn-danger w-100 p-3 link-light link-underline-opacity-0 link-underline-opacity-0-hover">Подробнее</a></td>
             </tr>
 @endforeach
         </tbody>
