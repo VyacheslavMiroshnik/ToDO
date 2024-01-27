@@ -10,6 +10,7 @@ class StudentController extends Controller
 {
     public function index(Group $group,Student $student)
     {
+
       return view('student',['student'=>$student]);
     }
 }

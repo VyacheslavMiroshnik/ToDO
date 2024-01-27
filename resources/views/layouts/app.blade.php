@@ -9,8 +9,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
 </head>
-<body class = "text-primary-emphasis bg-primary-subtle">
-
+<body class = " " data-bs-theme="dark">
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Все группы</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{}}">Группа</a>
+    </li>
+    @if(isset($students))
+    <li class="nav-item">
+        <a class="nav-link ">Студенты</a>
+    </li>
+        @endif
+</ul>
 <div class="container text-center">
 
     @yield('content')

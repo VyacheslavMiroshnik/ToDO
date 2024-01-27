@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,10 @@ use App\Http\Controllers\GroupController;
 
 Route::get('/', [GroupController::class,'index'])->name('index');
 Route::get('/groups', [GroupController::class,'index'])->name('index');
-Route::get('/groups/create', [GroupController::class,'index'])->name('create-group');
-Route::post('/groups', [GroupController::class,'index'])->name('index');
+Route::get('/groups/create', [GroupController::class,'create'])->name('create.group');
+Route::post('/groups', [GroupController::class,'update'])->name('group');
 Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
-Route::get('/groups/{group}/students/create', [GroupController::class,'index'])->name('index');
-Route::post('/groups/{group}/students', [GroupController::class,'index'])->name('index');
-Route::get('/groups/{group}/students/{student}', [\App\Http\Controllers\StudentController::class,'index'])->name('student');
+Route::get('/groups/{group}/students/create', [StudentController::class,'create'])->name('create.student');
+Route::post('/groups/{group}/students', [StudentController::class,'update'])->name('');
+Route::get('/groups/{group}/students/{student}', [StudentController::class,'index'])->name('student');
 

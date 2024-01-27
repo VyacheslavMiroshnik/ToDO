@@ -4,7 +4,7 @@
 @section('content')
 
 
-
+    @if( isset($student))
 
 
 
@@ -35,5 +35,5 @@
     </table>
     <a href="{{route('group',['group'=>$student->group_id])}}" class="btn btn-link">назад</a>
 
-
+    @endif
 @endsection
