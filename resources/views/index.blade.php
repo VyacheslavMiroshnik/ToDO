@@ -5,26 +5,25 @@
 @section('content')
 
 @if(count($groups)>0)
-    <h2>Список групп</h2>
-    <table class="table table-striped">
+    <a href="{{route('create.group')}}" class="btn btn-sm btn-outline-success float-end" >Добавить группу</a>
+    <h2 class="text-center" >Список групп</h2>
+    <table class="table table-striped w-50 m-auto text-center">
         <thead>
         <tr>
-            <th scope="col">id</th>
             <th scope="col">title</th>
             <th scope="col">start_from</th>
+            <th scope="col">isActive</th>
 
         </tr>
         </thead>
         <tbody>
     @foreach($groups as $group)
             <tr>
-                <th scope="row">{{$group->id}}</th>
-                <td>{{$group->title}}</td>
-                <td>{{$group->start_from}}</td>
-                <td>{{$group->isActive===0 ?'false':'true'}}</td>
-                <td>{{$group->created_at}}</td>
-                <td>{{$group->updated_at}}</td>
-                <td class = 'table-primary p-0'><a href="{{route('group',['group'=>$group->id])}}" class="btn btn-link btn-danger w-100 p-3 link-light link-underline-opacity-0 link-underline-opacity-0-hover">Подробнее</a></td>
+
+                <td class="nav-item"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->title}}</a></td>
+                <td class="nav-item "><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->start_from}}</a></td>
+                <td class="nav-item {{$group->isActive===0?'bg-danger':'bg-success'}}"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link"></a></td>
+
             </tr>
 @endforeach
         </tbody>

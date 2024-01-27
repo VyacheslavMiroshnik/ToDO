@@ -3,13 +3,14 @@
 @section('title','student')
 @section('content')
 
-
     @if( isset($student))
 
-
-
-
-    <table class="table table-striped">
+        <a href="{{route('group',['group'=>$student->group_id])}}" class="btn btn-sm btn-outline-secondary float-start" >Вернуться назад</a>
+        <a href="{{route('group',['group'=>$student->group_id])}}" class="btn btn-sm btn-outline-danger float-end" >Удалить студента</a>
+        <table class="table table-striped text-center">
+        <h2 class="text-center" >
+            Информация о студенте
+        </h2>
         <thead>
         <tr>
             <th scope="col">id</th>
@@ -29,11 +30,9 @@
             <td>{{$student->group_id}}</td>
             <td>{{$student->created_at}}</td>
             <td>{{$student->updated_at}}</td>
-            <td class = 'table-primary p-0'><a href="{{route('student',['student'=>$student->id,'group'=>$student->group_id])}}" class="btn btn-link btn-danger w-100 p-3 link-light link-underline-opacity-0 link-underline-opacity-0-hover">Подробнее</a></td>
         </tr>
         </tbody>
     </table>
-    <a href="{{route('group',['group'=>$student->group_id])}}" class="btn btn-link">назад</a>
 
     @endif
 @endsection

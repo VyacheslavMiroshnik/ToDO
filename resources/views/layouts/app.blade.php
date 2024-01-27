@@ -10,20 +10,8 @@
     <title>@yield('title')</title>
 </head>
 <body class = " " data-bs-theme="dark">
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{route('index')}}">Все группы</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{}}">Группа</a>
-    </li>
-    @if(isset($students))
-    <li class="nav-item">
-        <a class="nav-link ">Студенты</a>
-    </li>
-        @endif
-</ul>
-<div class="container text-center">
+
+<div class="container m-4">
 
     @yield('content')
 
