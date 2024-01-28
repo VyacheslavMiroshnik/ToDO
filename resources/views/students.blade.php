@@ -4,13 +4,13 @@
 
 @section('content')
     <a href="{{route('index')}}" class="btn btn-sm btn-outline-secondary float-start" >Вернуться назад</a>
-    <a href="{{route('create.student',['group'=>$group])}}" class="btn btn-sm btn-outline-success float-end" >Добавить студента</a>
+    <a href="{{route('create.student',['group'=>$group->id])}}" class="btn btn-sm btn-outline-success float-end" >Добавить студента</a>
     <h2 class="text-center mb-4" >Информация про группу {{$group->title}}</h2>
 
     <table class="table table-striped  m-auto text-center mb-4">
         <thead>
         <tr>
-            <th scope="col">id</th>
+            <th scope="col ">id</th>
             <th scope="col">title</th>
             <th scope="col">start_from</th>
             <th scope="col">isActive</th>
@@ -20,12 +20,12 @@
         </thead>
         <tbody>
             <tr>
-                <td class="nav-item"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->id}}</a></td>
-                <td class="nav-item"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->title}}</a></td>
-                <td class="nav-item "><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->start_from}}</a></td>
+                <td class="nav-item"><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->id}}</a></td>
+                <td class="nav-item"><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->title}}</a></td>
+                <td class="nav-item "><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->start_from}}</a></td>
                 <td class="nav-item {{$group->isActive===0?'bg-danger':'bg-success'}}"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link"></a></td>
-                <td class="nav-item "><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->created_at}}</a></td>
-                <td class="nav-item "><a href="{{route('group',['group'=>$group->id])}}" class="nav-link">{{$group->updated_at}}</a></td>
+                <td class="nav-item "><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->created_at}}</a></td>
+                <td class="nav-item "><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->updated_at}}</a></td>
             </tr>
         </tbody>
     </table>

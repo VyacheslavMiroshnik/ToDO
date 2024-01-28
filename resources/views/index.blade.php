@@ -3,10 +3,10 @@
 @section('title','group')
 
 @section('content')
-
-@if(count($groups)>0)
     <a href="{{route('create.group')}}" class="btn btn-sm btn-outline-success float-end" >Добавить группу</a>
     <h2 class="text-center" >Список групп</h2>
+
+    @if(count($groups)>0)
     <table class="table table-striped w-50 m-auto text-center">
         <thead>
         <tr>

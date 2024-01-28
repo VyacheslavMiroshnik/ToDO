@@ -11,7 +11,7 @@ class GroupController extends Controller
     private const GROUP_VALIDATOR = [
         'title'=>'required|max:40',
         'start_from'=>'required',
-        'isActive'=>'required',
+
     ];
     public function index ()
     {
@@ -33,8 +33,24 @@ class GroupController extends Controller
             Group::create([
                 'title'=>$validated['title'],
                 'start_from'=>$validated['start_from'],
-                'isActive'=>$validated['isActive'] === 'on' ? true : false,
+                'isActive'=>$request->isActive === 'on' ? true : false,
             ]);
             return redirect()->route('index');
+    }
+
+
+    public function edit(Group $group){
+        return view('edit-group',['group'=>$group]);
+    }
+    public function update(Request $request,Group $group)
+    {
+        $validated = $request->validate(self::GROUP_VALIDATOR);
+        $group->fill([
+            'title'=>$validated['title'],
+            'start_from'=>$validated['start_from'],
+            'isActive'=>$request->isActive === 'on' ? true : false,
+        ]);
+        $group->save();
+        return redirect()->route('group',['group'=>$group->id]);
     }
 }

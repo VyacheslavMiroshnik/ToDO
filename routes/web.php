@@ -19,6 +19,8 @@ Route::get('/', [GroupController::class,'index'])->name('index');
 Route::get('/groups', [GroupController::class,'index'])->name('index');
 Route::get('/groups/create', [GroupController::class,'create'])->name('create.group');
 Route::post('/groups', [GroupController::class,'post'])->name('post.group');
+Route::get('/groups/{group}/edit', [GroupController::class,'edit'])->name('edit.group');
+Route::patch('/groups/{group}', [GroupController::class,'update'])->name('update.group');
 Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
 Route::get('/groups/{group}/students/create', [StudentController::class,'create'])->name('create.student');
 Route::post('/groups/{group}/students', [StudentController::class,'post'])->name('post.student');
