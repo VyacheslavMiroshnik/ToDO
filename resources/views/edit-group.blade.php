@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="d-flex mb-4">
-        <a href="{{route('index')}}" class="btn btn-sm btn-outline-secondary float-start" >Вернуться назад</a>
+        <a href="{{route('group',['group'=>$group->id])}}" class="btn btn-sm btn-outline-secondary float-start" >Вернуться назад</a>
     </div>
 
     <form class="mb-3" action="{{route('update.group',['group'=>$group->id])}}" method="post" >

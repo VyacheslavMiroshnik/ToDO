@@ -34,4 +34,18 @@ class StudentController extends Controller
 
        return redirect()->route('group',['group'=>$group]);
     }
+
+    public function edit (Group $group,Student $student){
+        return view('edit-student',['group'=>$group,'student'=>$student]);
+    }
+    public function update (Request $request,Group $group,Student $student)
+    {
+        $validated = $request->validate(self::STUDENT_VALIDATOR);
+        $student->fill([
+            'name'=>$validated['name'],
+            'surname'=>$validated['surname'],
+        ]);
+        $student->save();
+        return redirect()->route('student',['group'=>$group,'student'=>$student]);
+    }
 }

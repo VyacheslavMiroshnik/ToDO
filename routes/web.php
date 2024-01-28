@@ -22,7 +22,12 @@ Route::post('/groups', [GroupController::class,'post'])->name('post.group');
 Route::get('/groups/{group}/edit', [GroupController::class,'edit'])->name('edit.group');
 Route::patch('/groups/{group}', [GroupController::class,'update'])->name('update.group');
 Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
+
+
+
 Route::get('/groups/{group}/students/create', [StudentController::class,'create'])->name('create.student');
 Route::post('/groups/{group}/students', [StudentController::class,'post'])->name('post.student');
+Route::get('/groups/{group}/students/{student}/edit', [StudentController::class,'edit'])->name('edit.student');
+Route::patch('/groups/{group}/students/{student}', [StudentController::class,'update'])->name('update.student');
 Route::get('/groups/{group}/students/{student}', [StudentController::class,'index'])->name('student');
 

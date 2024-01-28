@@ -24,12 +24,13 @@
         <tbody>
 
         <tr>
-            <th scope="row">{{$student->id}}</th>
-            <td>{{$student->name}}</td>
-            <td>{{$student->surname}}</td>
-            <td>{{$student->group_id}}</td>
-            <td>{{$student->created_at}}</td>
-            <td>{{$student->updated_at}}</td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->id}}</a></td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->name}}</a></td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->surname}}</a></td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->group_id}}</a></td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->created_at}}</a></td>
+            <td class="nav-item"><a href="{{route('edit.student',['student'=>$student->id,'group'=>$student->group_id])}}" class="nav-link">{{$student->updated_at}}</a></td>
+
         </tr>
         </tbody>
     </table>

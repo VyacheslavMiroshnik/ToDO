@@ -11,7 +11,7 @@
 </head>
 <body class = " " data-bs-theme="dark">
 
-<div class="container m-4">
+<div class="container mb-4 mt-4 m-auto">
 
     @yield('content')
 
