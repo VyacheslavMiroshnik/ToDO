@@ -26,9 +26,13 @@
                 <td class="nav-item {{$group->isActive===0?'bg-danger':'bg-success'}}"><a href="{{route('group',['group'=>$group->id])}}" class="nav-link"></a></td>
                 <td class="nav-item "><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->created_at}}</a></td>
                 <td class="nav-item "><a href="{{route('edit.group',['group'=>$group->id])}}" class="nav-link">{{$group->updated_at}}</a></td>
+                <td class=" "><a href="{{route('clear.group',['group'=>$group->id])}}" class="btn btn-sm btn-outline-danger " >Удалить группу</a></td>
             </tr>
         </tbody>
+
     </table>
+
+
 
     @if(count($group->student()->get())>0)
         <h2 class="text-center" >Состав группы {{$group->title}}</h2>

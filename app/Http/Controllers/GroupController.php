@@ -53,4 +53,15 @@ class GroupController extends Controller
         $group->save();
         return redirect()->route('group',['group'=>$group->id]);
     }
+    public function clear(Group $group)
+    {
+        return view('delete-group',['group'=>$group]);
+    }
+    public function delete(Group $group)
+    {
+        $group->delete();
+        return redirect()->route('index');
+    }
+
+
 }

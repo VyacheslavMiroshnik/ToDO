@@ -48,4 +48,14 @@ class StudentController extends Controller
         $student->save();
         return redirect()->route('student',['group'=>$group,'student'=>$student]);
     }
+
+    public function clear(Group $group,Student $student)
+    {
+        return view('delete-student',['group'=>$group,'student'=>$student]);
+    }
+    public function delete(Group $group,Student $student)
+    {
+        $student->delete();
+        return redirect()->route('group',['group'=>$group]);
+    }
 }
