@@ -12,33 +12,31 @@ class StudentController extends Controller
         'name'=>'required|max:40',
         'surname'=>'required|max:50',
     ];
-    public function index(Group $group,Student $student)
+    public function index(Group $group, Student $student)
     {
-
-      return view('student',['student'=>$student]);
+      return view('student', ['student'=>$student]);
     }
 
     public function create(Group $group)
     {
-        return view('create-student',['group'=>$group]);
+        return view('create-student', ['group'=>$group]);
     }
 
-    public function post(Request $request,Group $group,)
+    public function post(Request $request, Group $group,)
     {
-
         $validated = $request->validate(self::STUDENT_VALIDATOR);
-       $group->student()->create([
+        $group->students()->create([
            'name'=>$validated['name'],
            'surname'=>$validated['surname'],
-       ]);
-
-       return redirect()->route('group',['group'=>$group]);
+        ]);
+       return redirect()->route('group', ['group'=>$group]);
     }
 
-    public function edit (Group $group,Student $student){
-        return view('edit-student',['group'=>$group,'student'=>$student]);
+    public function edit (Group $group, Student $student)
+    {
+        return view('edit-student', ['group'=>$group, 'student'=>$student]);
     }
-    public function update (Request $request,Group $group,Student $student)
+    public function update (Request $request, Group $group, Student $student)
     {
         $validated = $request->validate(self::STUDENT_VALIDATOR);
         $student->fill([
@@ -46,16 +44,16 @@ class StudentController extends Controller
             'surname'=>$validated['surname'],
         ]);
         $student->save();
-        return redirect()->route('student',['group'=>$group,'student'=>$student]);
+        return redirect()->route('student', ['group'=>$group, 'student'=>$student]);
     }
 
-    public function clear(Group $group,Student $student)
+    public function clear(Group $group, Student $student)
     {
-        return view('delete-student',['group'=>$group,'student'=>$student]);
+        return view('delete-student', ['group'=>$group, 'student'=>$student]);
     }
-    public function delete(Group $group,Student $student)
+    public function delete(Group $group, Student $student)
     {
         $student->delete();
-        return redirect()->route('group',['group'=>$group]);
+        return redirect()->route('group', ['group'=>$group]);
     }
 }

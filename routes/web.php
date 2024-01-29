@@ -26,7 +26,6 @@ Route::delete('/groups/{group}', [GroupController::class,'delete'])->name('delet
 Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
 
 
-
 Route::get('/groups/{group}/students/create', [StudentController::class,'create'])->name('create.student');
 Route::post('/groups/{group}/students', [StudentController::class,'post'])->name('post.student');
 Route::get('/groups/{group}/students/{student}/edit', [StudentController::class,'edit'])->name('edit.student');
