@@ -7,7 +7,7 @@
         <a href="{{ route('clear.student', ['group' => $student->group_id, 'student' => $student->id]) }}"
             class="btn btn-sm btn-outline-danger float-end">Удалить студента</a>
         <table class="table table-striped text-center">
-            <h2 class="text-center"> Информация о студенте </h2>
+            <h2 class="text-center mb-4"> Информация о студенте </h2>
             <thead>
                 <tr>
                     <th scope="col">id</th>

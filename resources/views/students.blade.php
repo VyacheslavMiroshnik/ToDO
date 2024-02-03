@@ -47,7 +47,7 @@
         </tbody>
     </table>
     @if (count($group->students()->get()) > 0)
-        <h2 class="text-center">Состав группы {{ $group->title }}</h2>
+        <h2 class="text-center mb-4">Состав группы {{ $group->title }}</h2>
         <table class="table table-striped text-center ">
             <thead>
                 <tr>

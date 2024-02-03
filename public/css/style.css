@@ -1,0 +1,6 @@
+nav .nav-item{
+    transition: .3s font-size linear;
+}
+nav .nav-item:hover{
+    font-size: 1.1em;
+}

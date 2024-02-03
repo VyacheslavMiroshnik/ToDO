@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +16,28 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', [GroupController::class,'index'])->name('index');
-Route::get('/groups', [GroupController::class,'index'])->name('index');
-Route::get('/groups/create', [GroupController::class,'create'])->name('create.group');
-Route::post('/groups', [GroupController::class,'post'])->name('post.group');
-Route::get('/groups/{group}/edit', [GroupController::class,'edit'])->name('edit.group');
-Route::patch('/groups/{group}', [GroupController::class,'update'])->name('update.group');
-Route::get('/groups/{group}/delete', [GroupController::class,'clear'])->name('clear.group');
-Route::delete('/groups/{group}', [GroupController::class,'delete'])->name('delete.group');
-Route::get('/groups/{group}', [GroupController::class,'group'])->name('group');
 
+Route::prefix('groups')->group(function () {
+    Route::get('/', [GroupController::class,'index'])->name('index');
+    Route::get('create', [GroupController::class,'create'])->name('create.group')->middleware('can:post,group');
+    Route::post('/', [GroupController::class,'post'])->name('post.group')->middleware('can:post,group');
+    Route::get('{group}/edit', [GroupController::class,'edit'])->name('edit.group')->middleware('can:update,group');
+    Route::patch('{group}', [GroupController::class,'update'])->name('update.group')->middleware('can:update,group');
+    Route::get('{group}/delete', [GroupController::class,'clear'])->name('clear.group')->middleware('can:delete,group');
+    Route::delete('{group}', [GroupController::class,'delete'])->name('delete.group')->middleware('can:delete,group');
+    Route::get('{group}', [GroupController::class,'group'])->name('group');
+});
 
-Route::get('/groups/{group}/students/create', [StudentController::class,'create'])->name('create.student');
-Route::post('/groups/{group}/students', [StudentController::class,'post'])->name('post.student');
-Route::get('/groups/{group}/students/{student}/edit', [StudentController::class,'edit'])->name('edit.student');
-Route::patch('/groups/{group}/students/{student}', [StudentController::class,'update'])->name('update.student');
-Route::get('/groups/{group}/students/{student}/delete', [StudentController::class,'clear'])->name('clear.student');
-Route::delete('/groups/{group}/students/{student}', [StudentController::class,'delete'])->name('delete.student');
-Route::get('/groups/{group}/students/{student}', [StudentController::class,'index'])->name('student');
+Route::prefix('groups/{group}/students')->group(function () {
+    Route::get('create', [StudentController::class,'create'])->name('create.student')->middleware('can:post,student');
+    Route::post('/', [StudentController::class,'post'])->name('post.student')->middleware('can:post,student');
+	Route::get('{student}/edit', [StudentController::class,'edit'])->name('edit.student')->middleware('can:update,student');
+    Route::patch('{student}', [StudentController::class,'update'])->name('update.student')->middleware('can:update,student');
+    Route::get('{student}/delete', [StudentController::class,'clear'])->name('clear.student')->middleware('can:delete,student');
+    Route::delete('{student}', [StudentController::class,'delete'])->name('delete.student')->middleware('can:delete,student');
+    Route::get('{student}', [StudentController::class,'index'])->name('student');
+});
 
+Auth::routes();
+
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])->name('user');
